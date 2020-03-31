@@ -1,20 +1,4 @@
-# aws-kinesis-client
-A helper to ease the usage of kinesis streams
-
-## Instalation
-
-```sh
-npm install @everymundo/aws-kinesis-client
-```
-
-## Usage
-
-### Data Producer
-
-### Lambda Receiver Producer
-```js
-// index.js
-const kinesisParser = require('@everymundo/aws-kinesis-client/lib/parse-kinesis-record')
+const kinesisParser = require('../lib/parse-kinesis-record')
 
 const handler = (event) => {
   // flatJsonRecordsLambda expects that each element in event.Record to be
@@ -39,8 +23,13 @@ const testHandler = () => {
   }
 
   const response = handler(event)
+  console.log(response)
 
   assert(response.length === 6)
   assert(JSON.stringify(response) === '[{"a":1},{"a":2},{"a":3},{"a":4},{"a":5},{"a":6}]')
 }
-```
+
+module.exports = {
+  handler,
+  testHandler
+}
