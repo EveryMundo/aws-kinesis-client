@@ -15,7 +15,7 @@ describe('lib/parse-kinesis-record', () => {
 
   describe('#flatJsonRecordsLambda', () => {
     context('When the Records have invalid eventSource', () => {
-      it('should return return an empty array', () => {
+      it('should return an empty array', () => {
         const event = {
           Records: [
             { eventSource: 'aws:sqs', kinesis: { data: 'H4sIAAAAAAAAA4uuVkpUsjKs1QHTRlDauDYWAK14sVAZAAAA' } },
@@ -30,8 +30,28 @@ describe('lib/parse-kinesis-record', () => {
       })
     })
 
+    context('When one of the Records has an invalid JSON', () => {
+      it('should return that record as an error', () => {
+        const event = {
+          Records: [
+            { eventSource: 'aws:kinesis', kinesis: { data: 'eyJhIjoxfSx7ImEiOjJ9LHsiYSI6M31d' } },
+            { eventSource: 'aws:kinesis', kinesis: { data: 'H4sIAAAAAAAAA4uuVkpUsjKs1QHTRlDauDYWAK14sVAZAAAA' } },
+            { eventSource: 'aws:kinesis', kinesis: { data: 'W3siYSI6NH0seyJhIjo1fSx7ImEiOjZ9XQ==' } }
+          ]
+        }
+
+        const response = Array.from(lib.flatJsonRecordsLambda(event.Records))
+
+        expect(response).to.have.property('length', 7)
+        const error = response.shift()
+        expect(error).to.be.instanceof(Error)
+        expect(error).to.have.property('json', '{"a":1},{"a":2},{"a":3}]')
+        expect(response).to.deep.equal([{ a: 1 }, { a: 2 }, { a: 3 }, { a: 4 }, { a: 5 }, { a: 6 }])
+      })
+    })
+
     context('When each record contains a JSON array of objects', () => {
-      it('should return return a flat array', () => {
+      it('should return a flat array', () => {
         const event = {
           Records: [
             { eventSource: 'aws:kinesis', kinesis: { data: 'H4sIAAAAAAAAA4uuVkpUsjKs1QHTRlDauDYWAK14sVAZAAAA' } },

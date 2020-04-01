@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/EveryMundo/aws-kinesis-client#readme",
   "dependencies": {
+    "@everymundo/json-utils": "^1.0.1",
     "@everymundo/number-utils": "^1.0.0",
     "@everymundo/simple-logr": "^2.2.4",
     "flatstr": "^1.0.12"
