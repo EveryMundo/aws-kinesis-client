@@ -1,6 +1,6 @@
 {
   "name": "@everymundo/aws-kinesis-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A helper to ease the usage of kinesis streams",
   "main": "index.js",
   "scripts": {
