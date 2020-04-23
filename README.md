@@ -1,5 +1,13 @@
 # aws-kinesis-client
-A helper to ease the usage of kinesis streams
+A helper to ease the usage of kinesis streams while saving some money
+
+- [Instalation](#instalation)
+- [Why we created this package](docs/why-we-created-this-package.md)
+- [Usage](#usage)
+  - [Lambda Consumer](#lambda-consumer)
+  - [Data Producer](#data-producer)
+  
+
 
 ## Instalation
 
@@ -9,9 +17,7 @@ npm install @everymundo/aws-kinesis-client
 
 ## Usage
 
-### Data Producer
-
-### Lambda Receiver Producer
+### Lambda Consumer
 ```js
 // index.js
 const kinesisParser = require('@everymundo/aws-kinesis-client/lib/parse-kinesis-record')
@@ -44,3 +50,6 @@ const testHandler = () => {
   assert(JSON.stringify(response) === '[{"a":1},{"a":2},{"a":3},{"a":4},{"a":5},{"a":6}]')
 }
 ```
+
+### Data Producer
+TODO
