@@ -40,8 +40,8 @@ This means you'd be paying 40 PPUs / second
 At the rate of producing 40 PPUs / second the monthly costs wuuld be:
 Region             | Calculation | Total
 ------------------ | ----------- | -----
-US West (Oregon)   | (1000 PPUs * 60 seconds * 60 minutes * 24 hours * 30) / 1M * $0.014 | $1.45/month
-Africa (Cape Town) | (1000 PPUs * 60 seconds * 60 minutes * 24 hours * 30) / 1M * $0.0224 | $2.32/month
+US West (Oregon)   | (40 PPUs * 60 seconds * 60 minutes * 24 hours * 30) / 1M * $0.014 | $1.45/month
+Africa (Cape Town) | (40 PPUs * 60 seconds * 60 minutes * 24 hours * 30) / 1M * $0.0224 | $2.32/month
 
 ### Problem #1
 In many cases the application that produces the data is producing it so some other application can consuming it and changing the approach from 1 JSON Doc per Kinesis Message to Multiple JSON Docs / Kinesis Message would break the apps that are receiving the data.
@@ -104,7 +104,7 @@ In many scenarios it is not possible to align the work of different teams workin
 This very npm package solves it all.
 
 ### Implementing it across applications
-1. All the consumer apps o of a given stream implement the consumer generator at their own pace and then deploy their apps
+1. All the consumer apps of a given stream implement the consumer generator at their own pace and then deploy their apps
 1. Once all the consumers have deployed the consumer generator the producer app for the stream deploys the producer function.
 
 ### The Consumer
