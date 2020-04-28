@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "cover": "NODE_ENV=test LOG_LEVEL=silent nyc -x test --reporter=lcov --reporter=text mocha --recursive",
+    "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "check-lint": "standard *.js lib/*.js test/*.js test/*/*.js",
+    "fix-lint": "standard --fix *.js lib/*.js test/*.js test/*/*.js",
     "test": " NODE_ENV=test LOG_LEVEL=silent mocha --recursive"
   },
   "repository": {
@@ -15,6 +18,12 @@
     "env": [
       "mocha"
     ]
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run check-lint && npm test",
+      "pre-push": "npm run cover && npm run check-coverage"
+    }
   },
   "keywords": [],
   "author": "",
@@ -27,7 +36,8 @@
     "@everymundo/json-utils": "~1.0.1",
     "@everymundo/number-utils": "~1.0.0",
     "@everymundo/simple-logr": "~2.2.4",
-    "flatstr": "~1.0.12"
+    "flatstr": "~1.0.12",
+    "ghooks": "^2.0.4"
   },
   "devDependencies": {
     "aws-sdk": "^2.650.0",

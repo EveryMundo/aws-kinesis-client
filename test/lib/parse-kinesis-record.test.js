@@ -83,13 +83,12 @@ describe('lib/parse-kinesis-record', () => {
     })
   })
 
-  describe("#flatJsonSDKRecords", () => {
-
+  describe('#flatJsonSDKRecords', () => {
     context('When each record contains a JSON array of objects', () => {
       it('should return a flat array', () => {
         const Records = [
-          { Data: 'H4sIAAAAAAAAA4uuVkpUsjKs1QHTRlDauDYWAK14sVAZAAAA', SequenceNumber: "00000", PartitionKey: "0000"},
-          { Data: 'W3siYSI6NH0seyJhIjo1fSx7ImEiOjZ9XQ==', SequenceNumber: "00000", PartitionKey: "0000"}
+          { Data: 'H4sIAAAAAAAAA4uuVkpUsjKs1QHTRlDauDYWAK14sVAZAAAA', SequenceNumber: '00000', PartitionKey: '0000' },
+          { Data: 'W3siYSI6NH0seyJhIjo1fSx7ImEiOjZ9XQ==', SequenceNumber: '00000', PartitionKey: '0000' }
         ]
         const response = Array.from(lib.flatJsonSDKRecords(Records))
         expect(response).to.have.property('length', 6)
@@ -99,10 +98,9 @@ describe('lib/parse-kinesis-record', () => {
 
     context('When each record contains a single JSON objects', () => {
       it('should return a flat array', () => {
-
         const Records = [
-          { Data: 'H4sIAAAAAAAAA6tWSlSyMtRRSlKyMtJRSlayMq4FAKtb1C4TAAAA', SequenceNumber: "000", PartitionKey: "000" },
-          { Data: 'eyJhIjo0LCJiIjo1LCJjIjo2fQ==', SequenceNumber: "000", PartitionKey: "000" }
+          { Data: 'H4sIAAAAAAAAA6tWSlSyMtRRSlKyMtJRSlayMq4FAKtb1C4TAAAA', SequenceNumber: '000', PartitionKey: '000' },
+          { Data: 'eyJhIjo0LCJiIjo1LCJjIjo2fQ==', SequenceNumber: '000', PartitionKey: '000' }
         ]
 
         const response = Array.from(lib.flatJsonSDKRecords(Records))
@@ -114,9 +112,8 @@ describe('lib/parse-kinesis-record', () => {
 
     context('When each record contains a single JSON objects', () => {
       it('should return a flat array contining objects just from valid records.', () => {
-
         const Records = [
-          { Data: 'H4sIAAAAAAAAA6tWSlSyMtRRSlKyMtJRSlayMq4FAKtb1C4TAAAA', SequenceNumber: "000", PartitionKey: "000" },
+          { Data: 'H4sIAAAAAAAAA6tWSlSyMtRRSlKyMtJRSlayMq4FAKtb1C4TAAAA', SequenceNumber: '000', PartitionKey: '000' },
           { Data: 'eyJhIjo0LCJiIjo1LCJjIjo2fQ==' }
         ]
 
@@ -126,17 +123,15 @@ describe('lib/parse-kinesis-record', () => {
         expect(response).to.deep.equal([{ a: 1, b: 2, c: 3 }])
       })
     })
-
   })
 
-  describe("#flatJsonSDKSingleRecord", () => {
+  describe('#flatJsonSDKSingleRecord', () => {
     context('When the record contains a single JSON objects', () => {
       it('should return a flat array', () => {
-
         const Record = {
           Data: 'H4sIAAAAAAAAA6tWSlSyMtRRSlKyMtJRSlayMq4FAKtb1C4TAAAA',
-          SequenceNumber: "000",
-          PartitionKey: "000"
+          SequenceNumber: '000',
+          PartitionKey: '000'
         }
         const response = Array.from(lib.flatJsonSDKSingleRecord(Record))
 
@@ -146,11 +141,10 @@ describe('lib/parse-kinesis-record', () => {
     })
     context('When the record contains a JSON array of objects', () => {
       it('should return a flat array', () => {
-
         const Record = {
           Data: 'H4sIAAAAAAAAA4uuVkpUsjKs1QHTRlDauDYWAK14sVAZAAAA',
-          SequenceNumber: "000",
-          PartitionKey: "000"
+          SequenceNumber: '000',
+          PartitionKey: '000'
         }
         const response = Array.from(lib.flatJsonSDKSingleRecord(Record))
 
