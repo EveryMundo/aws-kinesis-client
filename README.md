@@ -1,3 +1,5 @@
+[![CodeQL](https://github.com/EveryMundo/aws-kinesis-client/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/EveryMundo/aws-kinesis-client/actions/workflows/codeql-analysis.yml)
+
 # aws-kinesis-client
 A helper to ease the usage of kinesis streams while saving some money
 
