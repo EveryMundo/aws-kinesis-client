@@ -91,6 +91,8 @@ Now that we have 4,000 Kinesis messages that are 25KB each, and assuming we have
 With 400 messages, we can now have a single Kenisis Shard instead of the previous 4.
 
 By having 1 active shards your average monthly cost would be:
+Region             | Calculation | Total
+------------------ | ----------- | -----
 US West (Oregon)   | $0.015 * 24 hours * 30 days * 1 shard | $10.80/month
 Africa (Cape Town) | $0.024 * 24 hours * 30 days * 1 shard | $17.28/month
 
