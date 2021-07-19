@@ -110,7 +110,7 @@ And the way to do so is by making your application read/parse the Kinesis produc
 1. Now, it's time to update the source code of the producer apps that feed the same Kinesis stream using this package to send the messages. Since the consumer apps are already ready to decompress and spread the array of messages, everything will keep working similarly.
 
 ### The Consumer
-This package has seamless methods for you to use without changing the way the consumers work. Our consumer generator [flatJsonRecordsLambda](lib/parse-kinesis-record.js) makes the transition very smooth.
+This package has seamless methods for you to use without changing the way the consumers work. Our consumer generator [flatJsonRecordsLambda](/lib/parse-kinesis-record.js) makes the transition very smooth.
 
 It supports all 4 different scenarios all at the same time
 1. Single JSON-Document Kinesis Message
@@ -142,7 +142,7 @@ const handler = async (event) => {
 Your application will still work as before, with 1 document at a time. All the logic to handle the different scenarios are encapsulated in the generator ```flatJsonRecordsLambda```
 
 ### The Producer
-You can send the messages gzipped when necessary by using the [sendItOptimizedToKinesisWithRetry](lib/send-to-kinesis-with-retry.js) function.
+You can send the messages gzipped when necessary by using the [sendItOptimizedToKinesisWithRetry](/lib/send-to-kinesis-with-retry.js) function.
 
 ```
 const emKinesisClient = require('@everymundo/aws-kinesis-client/lib/send-to-kinesis-with-retry')
