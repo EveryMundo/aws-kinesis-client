@@ -60,7 +60,7 @@ Region             | Calculation | Total
 US West (Oregon)   | $0.015 * 24 hours * 30 days * 100 shards | $1080/month
 Africa (Cape Town) | $0.024 * 24 hours * 30 days * 100 shards | $1728/month
 
-At the rate of producing 10,000 PPUs / second, the monthly costs would be:
+At the rate of producing 50,000 PPUs / second, the monthly costs would be:
 Region             | Calculation | Total
 ------------------ | ----------- | -----
 US West (Oregon)   | (50000 PPUs * 60 seconds * 60 minutes * 24 hours * 30) / 1M * $0.014 | $1814.4/month
