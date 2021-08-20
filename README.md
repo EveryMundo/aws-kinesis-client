@@ -40,8 +40,6 @@ const handler = async (event) => {
 const kinesisParser = require('@everymundo/aws-kinesis-client/lib/parse-kinesis-record')
 
 const handler = async (event) => {
-  // flatJsonRecordsLambda expects each element in event.Record to be a valid lambda Kinesis Record input with
-  // {"eventSource": "aws:kinesis","kinesis":{"data":"W3siYSI6MX0seyJhIjoyfSx7ImEiOjN9XQ=="}}
   const myRecords = []
   for (const record of kinesisParser.flatJsonRecordsLambda(event.Records)) {
     myRecords.push(record)
