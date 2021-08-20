@@ -146,7 +146,7 @@ Your application will still work as before, with 1 document at a time. All the l
 ### The Producer
 You can send the messages gzipped when necessary by using the [sendItOptimizedToKinesisWithRetry](/lib/send-to-kinesis-with-retry.js) function.
 
-```
+```js
 const emKinesisClient = require('@everymundo/aws-kinesis-client/lib/send-to-kinesis-with-retry')
 const docs = [doc1, doc2,..., docN]
 const res = await emKinesisClient.sendItOptimizedToKinesisWithRetry(StreamName, docs)
