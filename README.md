@@ -1,5 +1,7 @@
+[![CodeQL](https://github.com/EveryMundo/aws-kinesis-client/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/EveryMundo/aws-kinesis-client/actions/workflows/codeql-analysis.yml)
+
 # aws-kinesis-client
-A helper to ease the usage of kinesis streams while saving some money
+A helper to ease the usage of Kinesis Data Streams in Lambda Functions while cutting costs
 
 - [Instalation](#instalation)
 - [Why we created this package](docs/why-we-created-this-package.md)
@@ -18,6 +20,37 @@ npm install @everymundo/aws-kinesis-client
 ## Usage
 
 ### Lambda Consumer
+
+#### EXAMPLE: Usual AWS Lambda handler for an AWS Kinesis event
+```js
+// index.js
+const handler = async (event) => {
+  const myRecords = []
+  for (const record of event.Records) {
+    myRecords.push(record)
+    // ... do your processing of the record
+  }
+
+  return myRecords
+}
+```
+#### EXAMPLE: Of how simple is the code chage
+```js
+// index.js
+const kinesisParser = require('@everymundo/aws-kinesis-client/lib/parse-kinesis-record')
+
+const handler = async (event) => {
+  const myRecords = []
+  for (const record of kinesisParser.flatJsonRecordsLambda(event.Records)) {
+    myRecords.push(record)
+    // ... do your processing of the record
+  }
+
+  return myRecords
+}
+```
+
+#### You can test the implementation with a sample code as the following:
 ```js
 // index.js
 const kinesisParser = require('@everymundo/aws-kinesis-client/lib/parse-kinesis-record')
