@@ -102,9 +102,12 @@ dist
 
 # TernJS port file
 .tern-port
-package-lock.json
 temp/
-farenet_001-5-2020-03-30-15-01-02-953c1692-f850-4173-b026-f6fe264e860f.gz
 
 # IDEs
 .idea/
+
+# Output of 'npm pack'
+*.tgz
+*.gz
+*.zip
