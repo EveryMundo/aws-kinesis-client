@@ -17,8 +17,8 @@ const assert = require('assert')
 const testHandler = () => {
   const event = {
     Records: [
-      { eventSource: 'aws:kinesis', kinesis:{ data: 'W3siYSI6MX0seyJhIjoyfSx7ImEiOjN9XQ==' } },
-      { eventSource: 'aws:kinesis', kinesis:{ data: 'W3siYSI6NH0seyJhIjo1fSx7ImEiOjZ9XQ==' } }
+      { eventSource: 'aws:kinesis', kinesis: { data: 'W3siYSI6MX0seyJhIjoyfSx7ImEiOjN9XQ==' } },
+      { eventSource: 'aws:kinesis', kinesis: { data: 'W3siYSI6NH0seyJhIjo1fSx7ImEiOjZ9XQ==' } }
     ]
   }
 
