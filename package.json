@@ -6,8 +6,8 @@
   "scripts": {
     "cover": "NODE_ENV=test LOG_LEVEL=silent nyc -x test --reporter=lcov --reporter=text mocha --recursive",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
-    "check-lint": "standard *.js lib/*.js test/*.js test/*/*.js",
-    "fix-lint": "standard --fix *.js lib/*.js test/*.js test/*/*.js",
+    "check-lint": "standard",
+    "fix-lint": "standard --fix",
     "test": " NODE_ENV=test LOG_LEVEL=silent mocha --recursive"
   },
   "repository": {
@@ -35,16 +35,16 @@
   "dependencies": {
     "@everymundo/json-utils": "^1",
     "@everymundo/number-utils": "^1",
-    "@everymundo/simple-logr": "^2",
-    "flatstr": "~1.0.12"
+    "@everymundo/simple-logr": "^3",
+    "flatstr": "^1"
   },
   "devDependencies": {
-    "aws-sdk": "^2.992.0",
-    "chai": "^4.3.4",
+    "aws-sdk": "^2",
+    "chai": "^4.3.7",
     "ghooks": "^2.0.4",
-    "mocha": "^9.1.1",
+    "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "sinon": "^11.1.2",
-    "standard": "^14.3.4"
+    "sinon": "^15.0.3",
+    "standard": "^17.0.0"
   }
 }
