@@ -85,4 +85,9 @@ const testHandler = () => {
 ```
 
 ### Data Producer
-TODO
+
+```js
+const emKinesisClient = require('@everymundo/aws-kinesis-client/lib/send-to-kinesis-with-retry')
+const docs = [doc1, doc2,..., docN]
+const res = await emKinesisClient.sendItOptimizedToKinesisWithRetry(StreamName, docs)
+```
